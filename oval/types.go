@@ -150,7 +150,8 @@ func (d *Date) UnmarshalXML(dec *xml.Decoder, start xml.StartElement) error {
 		time.RFC1123Z,
 		time.RFC3339,
 		time.RFC3339Nano,
-		"2006-01-02 15:04:05", // Ubuntu style `YYYY-MM-DD time`, for when you want to seem precise.
+		"2006-01-02 15:04:05",    // Ubuntu style `YYYY-MM-DD time`, for when you want to seem precise.
+		"2006-01-02 15:04:05 PT", // Ubuntu style `YYYY-MM-DD time invalid-timezone`, note: this loses the timezone precision.
 	} {
 		d.Date, err = time.Parse(f, s)
 		if err == nil {
